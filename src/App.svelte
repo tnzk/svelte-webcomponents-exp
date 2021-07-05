@@ -3,10 +3,10 @@
 
 <script>
   import Kebab from  './Kebab.svelte'
-  import './KebabWorkaround.svelte'
+  import './KebabWrapper'
   import './NoUppercase.svelte'
   import PassAnObject from './PassAnObject.svelte'
-  import PassAnObjectWA from './WAPassAnObject.svelte'
+  import './WAPassAnObject.svelte'
   import CustomEventExample from './CustomEventExample.svelte'
   import './CustomEventWA.svelte'
   import './CustomEventAttr.svelte'
@@ -48,17 +48,18 @@
   <h2><a href="#">ケバブケース (aaa-bb-cc) の属性名を props として使えない</a></h2>
   <p>カスタム要素: <webdb-kebab your-name={name}></webdb-kebab></p>
   <p>Svelte コンポーネント: <Kebab your-name={name} /></p>
+  <p>カスタム要素（対処策つき）: <webdb-kebab-fixed your-name={name}></webdb-kebab-fixed></p>
 
   <h2><a href="#">属性名に大文字が使えない</a></h2>
   <p><webdb-no-uppercase yourName={name}></webdb-no-uppercase></p>
 
-  <h2><a href="#">DOM API経由の属性直の変更はサポートされているが、bind 機構はサポートされてない</a></h2>
+  <h2>
+    <a href="#">DOM API経由の属性直の変更はサポートされているが、bind 機構はサポートされてない</a> && 
+    <a href="#">属性値には文字列しか設定できない</a>
+  </h2>
   <p>カスタム要素: <webdb-pass-object name={data}></webdb-pass-object></p>
   <p>Svelte コンポーネント: <PassAnObject {data} /></p>
   <p>カスタム要素: <webdb-pass-object-wr key="somekey"></webdb-pass-object-wr><button on:click={syncToParent}>Sync to input field</button></p>
-
-  <h2><a href="#">属性値には文字列しか設定できない</a></h2>
-  <p>TODO</p>
 
   <h2><a href="#">Svelte でカスタムイベントを送出するようにしても、DOMイベントは飛ばない</a></h2>
   <p>Svelte コンポーネント: <CustomEventExample {name} on:namechanged={handleCustomEvent} /></p>
