@@ -1,4 +1,4 @@
-<svelte:options tag="webdb-custom-events-wa" />
+<svelte:options tag="swc-custom-events-wa" />
 
 <script>
   import { createEventDispatcher } from 'svelte';

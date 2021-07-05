@@ -1,4 +1,4 @@
-<svelte:options tag="webdb-pass-object" />
+<svelte:options tag="swc-pass-object" />
 
 <script>
 export let data

@@ -1,4 +1,4 @@
-<svelte:options tag="webdb-root" />
+<svelte:options tag="swc-root" />
 <svelte:window on:load={() => handleLoad()} />
 
 <script>
@@ -31,9 +31,9 @@
   let customEventElement
   let customEventWAElement
   const handleLoad = () => {
-    customEventElement = rootElement.querySelector('webdb-custom-events')
+    customEventElement = rootElement.querySelector('swc-custom-events')
     customEventElement.addEventListener('namechanged', handleCustomEvent)
-    customEventWAElement = rootElement.querySelector('webdb-custom-events-wa')
+    customEventWAElement = rootElement.querySelector('swc-custom-events-wa')
     customEventWAElement.addEventListener('namechanged', handleCustomEvent)
   }
   $: if (customEventElement) customEventElement.name = name
@@ -46,29 +46,29 @@
   <input bind:value={name}>
 
   <h2><a href="#">ケバブケース (aaa-bb-cc) の属性名を props として使えない</a></h2>
-  <p>カスタム要素: <webdb-kebab your-name={name}></webdb-kebab></p>
+  <p>カスタム要素: <swc-kebab your-name={name}></swc-kebab></p>
   <p>Svelte コンポーネント: <Kebab your-name={name} /></p>
-  <p>カスタム要素（対処策つき）: <webdb-kebab-fixed your-name={name}></webdb-kebab-fixed></p>
+  <p>カスタム要素（対処策つき）: <swc-kebab-fixed your-name={name}></swc-kebab-fixed></p>
 
   <h2><a href="#">属性名に大文字が使えない</a></h2>
-  <p><webdb-no-uppercase yourName={name}></webdb-no-uppercase></p>
+  <p><swc-no-uppercase yourName={name}></swc-no-uppercase></p>
 
   <h2>
     <a href="#">DOM API経由の属性直の変更はサポートされているが、bind 機構はサポートされてない</a> && 
     <a href="#">属性値には文字列しか設定できない</a>
   </h2>
-  <p>カスタム要素: <webdb-pass-object name={data}></webdb-pass-object></p>
+  <p>カスタム要素: <swc-pass-object name={data}></swc-pass-object></p>
   <p>Svelte コンポーネント: <PassAnObject {data} /></p>
-  <p>カスタム要素: <webdb-pass-object-wr key="somekey"></webdb-pass-object-wr><button on:click={syncToParent}>Sync to input field</button></p>
+  <p>カスタム要素: <swc-pass-object-wr key="somekey"></swc-pass-object-wr><button on:click={syncToParent}>Sync to input field</button></p>
 
   <h2><a href="#">Svelte でカスタムイベントを送出するようにしても、DOMイベントは飛ばない</a></h2>
   <p>Svelte コンポーネント: <CustomEventExample {name} on:namechanged={handleCustomEvent} /></p>
-  <p>カスタム要素: <webdb-custom-events name={name}></webdb-custom-events></p>
-  <p>カスタム要素: <webdb-custom-events-wa name={name}></webdb-custom-events-wa></p>
+  <p>カスタム要素: <swc-custom-events name={name}></swc-custom-events></p>
+  <p>カスタム要素: <swc-custom-events-wa name={name}></swc-custom-events-wa></p>
   <!-- TODO:  無理そう
-    <p>カスタム要素: <webdb-custom-events-wa-attr name={name} onnamechaged=""></webdb-custom-events-wa-attr></p>
+    <p>カスタム要素: <swc-custom-events-wa-attr name={name} onnamechaged=""></swc-custom-events-wa-attr></p>
   -->
   <h2><a href="#">Svelte コンポーネントとしてマウントした場合、下位コンポーネントのスタイルはインライン指定でしか反映されない</a></h2>
   <p>Svelte コンポーネント: <StylesEncupsulated {name} /></p>
-  <p>カスタム要素: <webdb-styles-encapsulated name={name}></webdb-styles-encapsulated></p>
+  <p>カスタム要素: <swc-styles-encapsulated name={name}></swc-styles-encapsulated></p>
 </div>

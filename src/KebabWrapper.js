@@ -11,4 +11,4 @@ class KebabWrapper extends Kebab {
   }
 }
 
-customElements.define('webdb-kebab-fixed', KebabWrapper);
+customElements.define('swc-kebab-fixed', KebabWrapper);

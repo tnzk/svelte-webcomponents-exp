@@ -1,4 +1,4 @@
-<svelte:options tag="webdb-kebab" />
+<svelte:options tag="swc-kebab" />
 
 <script>
 export let yourName = $$props['your-name']

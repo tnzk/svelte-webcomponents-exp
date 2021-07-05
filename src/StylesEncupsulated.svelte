@@ -1,4 +1,4 @@
-<svelte:options tag="webdb-styles-encapsulated" />
+<svelte:options tag="swc-styles-encapsulated" />
 
 <script>
 export let name
