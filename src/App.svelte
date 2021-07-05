@@ -3,12 +3,12 @@
 
 <script>
   import Kebab from  './Kebab.svelte'
-  import './KebabWrapper'
+  import './KebabFixed'
   import './NoUppercase.svelte'
   import PassAnObject from './PassAnObject.svelte'
-  import './WAPassAnObject.svelte'
+  import './PassAnObjectFixed.svelte'
   import CustomEventExample from './CustomEventExample.svelte'
-  import './CustomEventWA.svelte'
+  import './CustomEventFixed.svelte'
   import './CustomEventAttr.svelte'
   import StylesEncupsulated from './StylesEncupsulated.svelte'
 
@@ -33,7 +33,7 @@
   const handleLoad = () => {
     customEventElement = rootElement.querySelector('swc-custom-events')
     customEventElement.addEventListener('namechanged', handleCustomEvent)
-    customEventWAElement = rootElement.querySelector('swc-custom-events-wa')
+    customEventWAElement = rootElement.querySelector('swc-custom-events-fixed')
     customEventWAElement.addEventListener('namechanged', handleCustomEvent)
   }
   $: if (customEventElement) customEventElement.name = name
@@ -59,12 +59,12 @@
   </h2>
   <p>カスタム要素: <swc-pass-object name={data}></swc-pass-object></p>
   <p>Svelte コンポーネント: <PassAnObject {data} /></p>
-  <p>カスタム要素: <swc-pass-object-wr key="somekey"></swc-pass-object-wr><button on:click={syncToParent}>Sync to input field</button></p>
+  <p>カスタム要素: <swc-pass-object-fixed key="somekey"></swc-pass-object-fixed><button on:click={syncToParent}>Sync to input field</button></p>
 
   <h2><a href="#">Svelte でカスタムイベントを送出するようにしても、DOMイベントは飛ばない</a></h2>
   <p>Svelte コンポーネント: <CustomEventExample {name} on:namechanged={handleCustomEvent} /></p>
   <p>カスタム要素: <swc-custom-events name={name}></swc-custom-events></p>
-  <p>カスタム要素: <swc-custom-events-wa name={name}></swc-custom-events-wa></p>
+  <p>カスタム要素: <swc-custom-events-fixed name={name}></swc-custom-events-fixed></p>
   <!-- TODO:  無理そう
     <p>カスタム要素: <swc-custom-events-wa-attr name={name} onnamechaged=""></swc-custom-events-wa-attr></p>
   -->

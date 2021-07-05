@@ -1,4 +1,4 @@
-<svelte:options tag="swc-custom-events-wa" />
+<svelte:options tag="swc-custom-events-fixed" />
 
 <script>
   import { createEventDispatcher } from 'svelte';

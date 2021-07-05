@@ -1,6 +1,8 @@
 import Kebab from  './Kebab.svelte'
 
-class KebabWrapper extends Kebab {
+// Thanks to the workaround suggested here: https://github.com/sveltejs/svelte/issues/3852
+
+class KebabFixed extends Kebab {
   static get observedAttributes() {
     return (super.observedAttributes || []).map(attr => attr.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase());
   }
@@ -11,4 +13,4 @@ class KebabWrapper extends Kebab {
   }
 }
 
-customElements.define('swc-kebab-fixed', KebabWrapper);
+customElements.define('swc-kebab-fixed', KebabFixed);

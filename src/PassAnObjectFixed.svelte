@@ -1,4 +1,4 @@
-<svelte:options tag="swc-pass-object-wr" />
+<svelte:options tag="swc-pass-object-fixed" />
 
 <script>
 export let key
